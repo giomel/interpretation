@@ -38,7 +38,7 @@ public class NumberInterpretation {
 	public static List<List<String>> possibleInterpretations(List<String> number) {
 		
 		List<List<String>> list= new ArrayList<>();
-		list.add(number);
+		list.add(number); // add to List the initial number given by the user
 		
 		int first=0;
 		int second=0;
@@ -49,7 +49,8 @@ public class NumberInterpretation {
 			if(i<number.size()-1) {
 			second=Integer.parseInt(number.get(i+1));}
 			
-			List<String> num= new ArrayList<>();
+			List<String> num= new ArrayList<>(); // a List to represent different combinations of numbers
+												// after finding existing ambiguities
 			
 			//possible ambiguities: a) 10 followed by 3,4,5...,9
 			// b) 20, 30, 40,...90 followed by 1,2,3...9
