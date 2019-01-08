@@ -52,19 +52,22 @@ public class NumberInterpretation {
 			
 			List<String> num= new ArrayList<>();
 			
-			//possible ambiguities: i) 10, 20...,90 followed by 1,2...,9
-			// ii) 100, 200,...900 followed by 1,2,...99
-			// iii) 110, 120..., 210 followed by 1,2,...9
-			// iv) 13, 14,...19, 21, 22,..29, 91,...99
-			// v) 101, 102,...999
+			//possible ambiguities: a) 10 followed by 3,4,5...,9
+			// b)20, 30, 40,...90 followed by 1,2,3...9
+			// c) 100, 200,...900 followed by 1,2,...99
+			// d) 110, 210,...910 followed by 3,4,5...9
+			// e) 120, 130..., ,220,...,920,... followed by 1,2,...9
+			// f) 13, 14,...19, 21, 22,..29, 91,...99
+			// g) 101, 102,...999
 			
-			if((((first%10)==0 && first>10 && first<100 && first!=0) && (second<10 && second>0)) || 
+			
+			if( (((first%10)==0 && first>10 && first<100 && first!=0) && (second<10 && second>0)) || 
 					
 			  (first==10 && second>2 && second<10) || ((((first%100)==10) && first>100) && (second<10 && second>2)) ||
 			  
 			  (((first%100)==0 && first>=100) && (second<100 && second>0)) ||
-					
-			  (((first%10)==0 && first>=100) && (second<10 && second>0))){
+			  
+			  (((first%10)==0 && first>=100 && (first%100)!=10) && (second<10 && second>0)) ){
 				
 				for (int j=0;j<i;j++) {
 					
@@ -80,7 +83,7 @@ public class NumberInterpretation {
 				
 				list.add(num);
 				
-			}else if((first>12 && first<99) && !((first%10)==0) && (i!=0)){
+			}else if(((first>12 && first<=99 && first!=69) && !((first%10)==0)) || (first==69 && i!=0)){
 				
 				for (int j=0;j<i;j++) {
 					
