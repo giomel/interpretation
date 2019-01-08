@@ -33,7 +33,7 @@ public class NumberInterpretation {
 	}
 	
 	//Accepts as an argument the users' input as a List<String>(ex.[00, 30, 69, 345, 345, 23] ), searches for
-	//ambiguities and returns a List of List (a List of possible interpretations)
+	//ambiguities and returns a List of List<String> (a List of possible interpretations)
 	
 	public static List<List<String>> possibleInterpretations(List<String> number) {
 		
@@ -45,7 +45,6 @@ public class NumberInterpretation {
 		
 		for(int i=0; i<number.size(); i++) {
 			first=Integer.parseInt(number.get(i));
-			//System.out.println(first%100);
 			
 			if(i<number.size()-1) {
 			second=Integer.parseInt(number.get(i+1));}
@@ -53,11 +52,11 @@ public class NumberInterpretation {
 			List<String> num= new ArrayList<>();
 			
 			//possible ambiguities: a) 10 followed by 3,4,5...,9
-			// b)20, 30, 40,...90 followed by 1,2,3...9
+			// b) 20, 30, 40,...90 followed by 1,2,3...9
 			// c) 100, 200,...900 followed by 1,2,...99
 			// d) 110, 210,...910 followed by 3,4,5...9
 			// e) 120, 130..., ,220,...,920,... followed by 1,2,...9
-			// f) 13, 14,...19, 21, 22,..29, 91,...99
+			// f) 13,...19, 21, 22,..29,...,91,...99
 			// g) 101, 102,...999
 			
 			
