@@ -102,7 +102,7 @@ public class NumberInterpretation {
 				
 				list.add(num);
 				
-			} else if((first>100 && first<999) && !((first%100)==0)) {
+			} else if((first>100 && first<=999) && !((first%100)==0)) {
 				
 				for (int j=0;j<i;j++) {
 					
